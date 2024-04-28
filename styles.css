@@ -33,6 +33,7 @@ nav ul li a {
 
 .games {
     padding: 20px;
+	height: auto;
 }
 
 .games h2 {
@@ -41,7 +42,7 @@ nav ul li a {
 
 .slideshow-container {
     position: relative;
-    max-width: 600px;
+    max-width: 1200px;
     margin: 0 auto;
 }
 
@@ -63,7 +64,7 @@ nav ul li a {
 
 .game-image {
     float: right;
-    width: 400px;
+    width: 600px;
 }
 
 .prev, .next {
