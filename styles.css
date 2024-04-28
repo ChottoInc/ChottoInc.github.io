@@ -49,12 +49,12 @@ nav ul li a {
     display: none;
 }
 
-.game-image {
-    float: right;
-    margin-left: 20px;
+.game-image img {
+    max-width: 100%;
+    height: auto;
 }
 
-.game-description {
+.game-image, .game-description {
     float: left;
 }
 
