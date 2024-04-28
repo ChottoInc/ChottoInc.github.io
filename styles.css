@@ -41,7 +41,7 @@ nav ul li a {
 
 .slideshow-container {
     position: relative;
-    max-width: 700px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
@@ -52,10 +52,18 @@ nav ul li a {
 .game-image img {
     max-width: 100%;
     height: auto;
+    max-width: 600px;
+    max-height: 400px;
 }
 
-.game-image, .game-description {
+.game-description {
     float: left;
+    width: calc(100% - 400px);
+}
+
+.game-image {
+    float: right;
+    width: 400px;
 }
 
 .prev, .next {
@@ -64,17 +72,11 @@ nav ul li a {
     top: 50%;
     width: auto;
     padding: 16px;
-    margin-top: -22px;
     color: #333;
     font-weight: bold;
     font-size: 18px;
     transition: 0.6s ease;
     border-radius: 0 3px 3px 0;
-}
-
-.prev:hover, .next:hover {
-    background-color: rgba(0, 0, 0, 0.8);
-    color: white;
 }
 
 .prev {
@@ -100,7 +102,7 @@ nav ul li a {
     background-color: #333;
 }
 
-footer {
+.footer {
     background-color: #333;
     color: #fff;
     text-align: center;
