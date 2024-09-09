@@ -104,8 +104,8 @@ section {
 }
 
 .horizontal-block .grid-item a {
+    display: inline-block; /* Shrink to fit content */
     position: relative;
-    display: block;
     max-width: 500px;
     width: 100%;
 }
@@ -131,15 +131,15 @@ section {
 }
 
 .vertical-block .grid-item a {
+    display: inline-block; /* Shrink to fit content */
     position: relative;
-    display: block;
     max-height: 750px;
-    width: auto;
+    height: 100%;
 }
 
 .vertical-block .grid-item img {
-    height: 100%;
     width: auto;
+    height: 100%;
     display: block;
     border-radius: 10px;
 }
@@ -163,6 +163,7 @@ section {
 
 .grid-item a:hover .overlay {
     opacity: 1;
+}
 }
 
 /*
