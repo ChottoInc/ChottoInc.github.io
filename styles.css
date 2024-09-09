@@ -83,6 +83,13 @@ section {
     padding: 20px;
 }
 
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+    padding: 20px;
+}
+
 .grid-item {
     position: relative;
     cursor: pointer;
@@ -95,14 +102,6 @@ section {
     border-radius: 10px;
 }
 
-.grid-item.horizontal img {
-    aspect-ratio: 16 / 9; 
-}
-
-.grid-item.vertical img {
-    aspect-ratio: 9 / 16; 
-}
-
 .grid-item .overlay {
     position: absolute;
     top: 0;
@@ -122,59 +121,6 @@ section {
 .grid-item:hover .overlay {
     opacity: 1;
 }
-
-
-/* Separated Flexbox Layout */
-/*
-.grid-container-separated {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-}
-
-.horizontal-section,
-.vertical-section {
-    display: flex;
-    flex-direction: column;
-    gap: 20px;
-    flex-basis: 50%;
-}
-
-.grid-item img {
-    width: 100%;
-    height: auto;
-    display: block;
-    border-radius: 10px;
-}
-
-.grid-item.horizontal img {
-    aspect-ratio: 16 / 9; 
-}
-
-.grid-item.vertical img {
-    aspect-ratio: 9 / 16; 
-}
-
-.grid-item .overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    opacity: 0;
-    border-radius: 10px;
-    transition: opacity 0.3s ease;
-}
-
-.grid-item:hover .overlay {
-    opacity: 1;
-}
-*/
 
 /* Contact Section */
 #contact {
