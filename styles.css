@@ -127,6 +127,7 @@ section {
 /* Separated Flexbox Layout */
 .grid-container-separated {
     display: flex;
+	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     flex-wrap: wrap;
     gap: 20px;
 }
