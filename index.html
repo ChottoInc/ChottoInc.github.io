@@ -3,58 +3,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chotto Inc.</title>
+    <title>Game Development Portfolio</title>
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Chotto Inc.</h1>
+        <div class="theme-switcher">
+            <button id="theme-toggle">🌙</button>
+        </div>
         <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="projects.html">Projects</a></li>
-            </ul>
+            <a href="#home">Home</a>
+            <a href="#portfolio">Portfolio</a>
+            <a href="#contact">Contact</a>
         </nav>
     </header>
 
-    <main>
-        <section id="intro">
-            <h2>Introduction</h2>
-            <p>Welcome to Chotto Inc. Here, we focus on innovation and creativity.</p>
-        </section>
+    <section id="home">
+        <h1>Welcome to My Game Development Portfolio</h1>
+    </section>
 
-        <section id="section1" class="content-section">
-            <h2>Section 1</h2>
-            <div class="content-wrapper">
-                <p class="description">This is a description for the first section with some detailed information.</p>
-                <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <a class="btn" href="https://www.example.com" target="_blank">Learn More</a>
+    <section id="portfolio">
+        <h2>My Projects</h2>
+        <div class="grid-container">
+            <div class="grid-item">
+                <a href="project1.html">
+                    <img src="project1.jpg" alt="Project 1">
+                    <div class="overlay">
+                        <p>Project 1</p>
+                    </div>
+                </a>
             </div>
-        </section>
+            <div class="grid-item">
+                <a href="project2.html">
+                    <img src="project2.jpg" alt="Project 2">
+                    <div class="overlay">
+                        <p>Project 2</p>
+                    </div>
+                </a>
+            </div>
+            <!-- Add more grid items as needed -->
+        </div>
+    </section>
 
-        <section id="section2" class="content-section">
-            <h2>Section 2</h2>
-            <div class="content-wrapper">
-                <p class="description">This is a description for the second section with some detailed information.</p>
-                <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <a class="btn" href="https://www.example.com" target="_blank">Learn More</a>
-            </div>
-        </section>
+    <section id="contact">
+        <h2>Contact Me</h2>
+        <p>Email: youremail@example.com</p>
+        <p>LinkedIn: <a href="your-linkedin-profile">Your LinkedIn</a></p>
+        <!-- Add other contact information as needed -->
+    </section>
 
-        <section id="section3" class="content-section">
-            <h2>Section 3</h2>
-            <div class="content-wrapper">
-                <p class="description">This is a description for the third section with some detailed information.</p>
-                <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/VIDEO_ID_3" frameborder="0" allowfullscreen></iframe>
-                </div>
-                <a class="btn" href="https://www.example.com" target="_blank">Learn More</a>
-            </div>
-        </section>
-    </main>
+    <script src="script.js"></script>
 </body>
 </html>
