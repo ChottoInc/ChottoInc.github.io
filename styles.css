@@ -76,16 +76,11 @@ section {
     text-align: center;
 }
 
-.grid-container {
+/* Mixed Grid Layout */
+.grid-container-mixed {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(2, 1fr);
     gap: 20px;
-    padding: 20px;
-}
-
-.grid-item {
-    position: relative;
-    cursor: pointer;
 }
 
 .grid-item img {
@@ -93,6 +88,14 @@ section {
     height: auto;
     display: block;
     border-radius: 10px;
+}
+
+.grid-item.horizontal img {
+    aspect-ratio: 16 / 9; /* Adjust ratio for horizontal images */
+}
+
+.grid-item.vertical img {
+    aspect-ratio: 9 / 16; /* Adjust ratio for vertical images */
 }
 
 .grid-item .overlay {
@@ -114,6 +117,7 @@ section {
 .grid-item:hover .overlay {
     opacity: 1;
 }
+
 
 /* Contact Section */
 #contact {
