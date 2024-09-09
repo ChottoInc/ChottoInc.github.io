@@ -79,7 +79,7 @@ section {
 /* Mixed Grid Layout */
 .grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     gap: 20px;
     padding: 20px;
 }
@@ -94,14 +94,6 @@ section {
     height: auto;
     display: block;
     border-radius: 10px;
-}
-
-.grid-item.horizontal img {
-    aspect-ratio: 16 / 9; /* Adjust ratio for horizontal images */
-}
-
-.grid-item.vertical img {
-    aspect-ratio: 9 / 16; /* Adjust ratio for vertical images */
 }
 
 .grid-item .overlay {
@@ -123,7 +115,6 @@ section {
 .grid-item:hover .overlay {
     opacity: 1;
 }
-
 
 /* Contact Section */
 #contact {
