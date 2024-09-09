@@ -31,13 +31,25 @@ header {
     align-items: center;
     padding: 10px 20px;
     transition: background-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
 }
 
 nav a {
-    margin: 0 15px;
+    margin: 0 10px;
     text-decoration: none;
     color: var(--text-color);
     font-weight: bold;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.theme-switcher {
+    margin-right: 10px;
 }
 
 .theme-switcher button {
@@ -47,6 +59,7 @@ nav a {
     cursor: pointer;
     color: var(--text-color);
 }
+
 
 /* Section Styling */
 section {
@@ -79,6 +92,14 @@ section {
     height: auto;
     display: block;
     border-radius: 10px;
+}
+
+.grid-item.horizontal img {
+    aspect-ratio: 16 / 9; /* Adjust ratio for horizontal images */
+}
+
+.grid-item.vertical img {
+    aspect-ratio: 9 / 16; /* Adjust ratio for vertical images */
 }
 
 .grid-item .overlay {
