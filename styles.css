@@ -75,7 +75,7 @@ section {
     text-align: center;
 }
 
-/*
+
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
@@ -122,12 +122,12 @@ section {
 .grid-item:hover .overlay {
     opacity: 1;
 }
-*/
+
 
 /* Separated Flexbox Layout */
+/*
 .grid-container-separated {
     display: flex;
-	grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
     flex-wrap: wrap;
     gap: 20px;
 }
@@ -148,11 +148,11 @@ section {
 }
 
 .grid-item.horizontal img {
-    aspect-ratio: 16 / 9; /* Adjust ratio for horizontal images */
+    aspect-ratio: 16 / 9; 
 }
 
 .grid-item.vertical img {
-    aspect-ratio: 9 / 16; /* Adjust ratio for vertical images */
+    aspect-ratio: 9 / 16; 
 }
 
 .grid-item .overlay {
@@ -174,7 +174,7 @@ section {
 .grid-item:hover .overlay {
     opacity: 1;
 }
-
+*/
 
 /* Contact Section */
 #contact {
