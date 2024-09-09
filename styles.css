@@ -77,10 +77,16 @@ section {
 }
 
 /* Mixed Grid Layout */
-.grid-container-mixed {
+.grid-container {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust minmax for smaller images */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
     gap: 20px;
+    padding: 20px;
+}
+
+.grid-item {
+    position: relative;
+    cursor: pointer;
 }
 
 .grid-item img {
