@@ -19,7 +19,6 @@ body {
 }
 
 /* Header Styling */
-/* Header Styling */
 header {
     position: fixed;
     top: 0;
@@ -32,25 +31,13 @@ header {
     align-items: center;
     padding: 10px 20px;
     transition: background-color 0.3s ease;
-    box-sizing: border-box;
-}
-
-nav {
-    display: flex;
-    flex-grow: 1;
-    justify-content: flex-end;
 }
 
 nav a {
-    margin: 0 10px;
+    margin: 0 15px;
     text-decoration: none;
     color: var(--text-color);
     font-weight: bold;
-    white-space: nowrap; /* Prevent text wrapping */
-}
-
-.theme-switcher {
-    margin-right: 10px;
 }
 
 .theme-switcher button {
@@ -60,7 +47,6 @@ nav a {
     cursor: pointer;
     color: var(--text-color);
 }
-
 
 /* Section Styling */
 section {
@@ -76,7 +62,6 @@ section {
     text-align: center;
 }
 
-/* Mixed Grid Layout */
 .grid-container {
     display: grid;
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
