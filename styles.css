@@ -79,12 +79,12 @@ section {
 /* Mixed Grid Layout */
 .grid-container-mixed {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); /* Adjust minmax for smaller images */
     gap: 20px;
 }
 
 .grid-item img {
-    width: 50%;
+    width: 100%;
     height: auto;
     display: block;
     border-radius: 10px;
