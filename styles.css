@@ -19,26 +19,38 @@ body {
 }
 
 /* Header Styling */
+/* Header Styling */
 header {
     position: fixed;
     top: 0;
-    width: 75%;
+    width: 100%;
     background-color: var(--background-color);
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
     z-index: 1000;
     display: flex;
-    /*justify-content: space-between;*/
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     padding: 10px 20px;
     transition: background-color 0.3s ease;
+    box-sizing: border-box;
+}
+
+nav {
+    display: flex;
+    flex-grow: 1;
+    justify-content: flex-end;
 }
 
 nav a {
-    margin: 0 15px;
+    margin: 0 10px;
     text-decoration: none;
     color: var(--text-color);
     font-weight: bold;
+    white-space: nowrap; /* Prevent text wrapping */
+}
+
+.theme-switcher {
+    margin-right: 10px;
 }
 
 .theme-switcher button {
@@ -48,6 +60,7 @@ nav a {
     cursor: pointer;
     color: var(--text-color);
 }
+
 
 /* Section Styling */
 section {
