@@ -61,9 +61,6 @@ function renderHero(){
   if (roleEl) roleEl.textContent = SITE.role[state.lang];
   const tagEl = document.getElementById("site-tagline");
   if (tagEl) tagEl.textContent = SITE.tagline[state.lang];
-  const hero = document.querySelector(".hero");
-  if (hero) hero.style.setProperty("--hero-image", `url(${SITE.heroImage})`);
-
   const socialsEl = document.getElementById("socials");
   if (socialsEl){
     socialsEl.innerHTML = SITE.socials.map(s=>`
@@ -71,6 +68,50 @@ function renderHero(){
         ${ICONS[s.icon] || ICONS.link}
       </a>`).join("");
   }
+
+  initHeroSlideshow();
+}
+
+/* -------- slideshow immagini nell'hero -------- */
+let slideshowTimer;
+function initHeroSlideshow(){
+  const track = document.getElementById("slideshow-track");
+  const dotsEl = document.getElementById("slideshow-dots");
+  if (!track || !dotsEl) return;
+  const slides = SITE.heroSlides || [];
+  if (!slides.length) return;
+
+  track.innerHTML = slides.map((src,i)=>
+    `<img src="${src}" alt="" class="${i===0 ? 'active' : ''}" loading="${i===0 ? 'eager' : 'lazy'}">`
+  ).join("");
+  dotsEl.innerHTML = slides.map((_,i)=>
+    `<button aria-label="Slide ${i+1}" class="${i===0 ? 'active' : ''}" data-i="${i}"></button>`
+  ).join("");
+
+  const imgs = track.querySelectorAll("img");
+  const dots = dotsEl.querySelectorAll("button");
+  let current = 0;
+
+  function goTo(i){
+    imgs[current]?.classList.remove("active");
+    dots[current]?.classList.remove("active");
+    current = (i + slides.length) % slides.length;
+    imgs[current]?.classList.add("active");
+    dots[current]?.classList.add("active");
+  }
+
+  dots.forEach(d=> d.addEventListener("click", ()=>{
+    goTo(parseInt(d.dataset.i,10));
+    restartAutoplay();
+  }));
+
+  const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  function restartAutoplay(){
+    clearInterval(slideshowTimer);
+    if (reduce || slides.length < 2) return;
+    slideshowTimer = setInterval(()=> goTo(current+1), 4200);
+  }
+  restartAutoplay();
 }
 
 /* -------- render card di un progetto -------- */
@@ -118,15 +159,28 @@ function renderProjects(){
 }
 
 /* -------- tabs -------- */
+function switchTab(panelId){
+  document.querySelectorAll(".tab-btn").forEach(b=>{
+    b.classList.toggle("active", b.dataset.panel === panelId);
+  });
+  document.querySelectorAll(".panel").forEach(p=>{
+    p.classList.toggle("active", p.id === panelId);
+  });
+}
+
 function setupTabs(){
-  const buttons = document.querySelectorAll(".tab-btn");
-  buttons.forEach(btn=>{
-    btn.addEventListener("click", ()=>{
-      buttons.forEach(b=>b.classList.remove("active"));
-      btn.classList.add("active");
-      document.querySelectorAll(".panel").forEach(p=>p.classList.remove("active"));
-      document.getElementById(btn.dataset.panel).classList.add("active");
-    });
+  document.querySelectorAll(".tab-btn").forEach(btn=>{
+    btn.addEventListener("click", ()=> switchTab(btn.dataset.panel));
+  });
+
+  // Il CTA "Guarda i progetti" nell'header: prima di tutto attiva il tab PC
+  // (cosi' funziona anche se l'utente si trova su un altro tab), poi scrolla
+  // fino alla barra dei tab.
+  const heroCta = document.getElementById("hero-cta");
+  heroCta?.addEventListener("click", (e)=>{
+    e.preventDefault();
+    switchTab("panel-pc");
+    document.getElementById("tabs-nav")?.scrollIntoView({ behavior: "smooth" });
   });
 }
 

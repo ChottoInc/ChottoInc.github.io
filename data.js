@@ -21,8 +21,15 @@ const SITE = {
     it: "Creo piccoli mondi giocabili, dal prototipo alla pubblicazione.",
     en: "I build small playable worlds, from prototype to release."
   },
-  // Immagine di sfondo dietro l'header. Metti il file in /images e cambia il path.
-  heroImage: "images/hero-placeholder.svg",
+  // Immagini che scorrono nello slideshow a destra dell'header.
+  // Metti i file dentro /images/hero-slides/ e aggiorna i path qui.
+  // Dimensioni consigliate: 1200x800px (rapporto 3:2), formato jpg/webp, sotto ai 400KB l'una.
+  // Puoi aggiungerne o toglierne quante ne vuoi: lo slideshow si adatta da solo alla lunghezza dell'array.
+  heroSlides: [
+    "images/hero-slides/slide-1.svg",
+    "images/hero-slides/slide-2.svg",
+    "images/hero-slides/slide-3.svg"
+  ],
   email: "tuamail@esempio.com",
 
   // Aggiungi/rimuovi social semplicemente aggiungendo/togliendo righe.

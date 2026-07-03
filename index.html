@@ -29,18 +29,26 @@
 
 <!-- ===================== HEADER ===================== -->
 <header class="hero">
-  <div class="container">
-    <div class="eyebrow" data-i18n="heroCta">progetti</div>
-    <h1 id="site-name">Nome Cognome</h1>
-    <p class="tagline" id="site-role" style="font-family:var(--font-mono); color:var(--accent-2); font-size:1rem; margin-bottom:6px;"></p>
-    <p class="tagline" id="site-tagline"></p>
-    <a href="#panel-pc" class="hero-cta" data-i18n="heroCta">Guarda i progetti</a>
-    <div class="socials" id="socials"></div>
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <div class="eyebrow" data-i18n="heroCta">progetti</div>
+      <h1 id="site-name">Nome Cognome</h1>
+      <p class="tagline" id="site-role" style="font-family:var(--font-mono); color:var(--accent-2); font-size:.95rem; margin-bottom:6px;"></p>
+      <p class="tagline" id="site-tagline"></p>
+      <a href="#panel-pc" id="hero-cta" class="hero-cta" data-i18n="heroCta">Guarda i progetti</a>
+      <div class="socials" id="socials"></div>
+    </div>
+
+    <!-- Slideshow: le immagini vengono da SITE.heroSlides in data.js -->
+    <div class="hero-slideshow" id="hero-slideshow">
+      <div class="slideshow-track" id="slideshow-track"></div>
+      <div class="slideshow-dots" id="slideshow-dots"></div>
+    </div>
   </div>
 </header>
 
 <!-- ===================== TAB NAVIGATION ===================== -->
-<nav class="tabs-nav">
+<nav class="tabs-nav" id="tabs-nav">
   <div class="container">
     <button class="tab-btn active" data-panel="panel-pc" data-i18n="navPc">PC</button>
     <button class="tab-btn" data-panel="panel-mobile" data-i18n="navMobile">Mobile</button>
