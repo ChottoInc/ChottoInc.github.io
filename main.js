@@ -149,7 +149,7 @@ function setupScrollSpy(){
   cards.forEach(c=>spyObserver.observe(c));
 }
 
-/* -------- intro / boot sequence -------- */
+/* -------- intro / loading screen (stile game engine) -------- */
 function playIntro(){
   const introEl = document.getElementById("intro");
   if (!introEl) return;
@@ -159,24 +159,57 @@ function playIntro(){
     introEl.classList.add("hidden");
     return;
   }
-  const lines = state.lang === "it"
-    ? [`whoami`, `> ${SITE.name}`, `cat ruolo.txt`, `> ${SITE.role.it}`, `ls progetti/`, `> pc/  mobile/  itch/`, `avvio interfaccia...`]
-    : [`whoami`, `> ${SITE.name}`, `cat role.txt`, `> ${SITE.role.en}`, `ls projects/`, `> pc/  mobile/  itch/`, `booting interface...`];
 
-  introEl.innerHTML = lines.map((l,i)=>{
-    const isPrompt = !l.startsWith(">");
-    return `<div class="line" style="animation-delay:${i*0.35}s">${isPrompt ? `<span class="prompt">$</span>${l}` : l}</div>`;
-  }).join("") + `<span class="cursor"></span>`;
+  // Messaggi di stato mostrati mentre la barra avanza (puoi modificarli qui).
+  const steps = state.lang === "it"
+    ? ["Inizializzazione motore...", "Caricamento asset...", "Compilazione shader...", "Costruzione scena...", "Quasi pronto..."]
+    : ["Initializing engine...", "Loading assets...", "Compiling shaders...", "Building scene...", "Almost ready..."];
+
+  const contentEl = document.getElementById("intro-content") || introEl;
+  contentEl.innerHTML = `
+    <div class="loader-mark"><span class="loader-ring"></span><span class="dot"></span></div>
+    <div class="loader-title">${SITE.name}<span>.</span></div>
+    <div class="loader-bar-wrap">
+      <div class="loader-bar-track"><div class="loader-bar-fill" id="loader-fill"></div></div>
+      <div class="loader-meta">
+        <span id="loader-status">${steps[0]}</span>
+        <span id="loader-percent">0%</span>
+      </div>
+    </div>
+  `;
 
   const skipBtn = document.getElementById("skip-intro");
   if (skipBtn) skipBtn.textContent = t("skipIntro");
 
+  const fillEl = document.getElementById("loader-fill");
+  const statusEl = document.getElementById("loader-status");
+  const percentEl = document.getElementById("loader-percent");
+
+  const DURATION = 2200; // durata totale del caricamento in ms: modifica per rendere l'intro piu' lunga/breve
+  const start = performance.now();
+  let rafId;
+
+  const tick = (now)=>{
+    const progress = Math.min(1, (now - start) / DURATION);
+    const pct = Math.floor(progress * 100);
+    fillEl.style.width = pct + "%";
+    percentEl.textContent = pct + "%";
+    const stepIndex = Math.min(steps.length - 1, Math.floor(progress * steps.length));
+    statusEl.textContent = steps[stepIndex];
+    if (progress < 1){
+      rafId = requestAnimationFrame(tick);
+    } else {
+      setTimeout(finish, 300);
+    }
+  };
+  rafId = requestAnimationFrame(tick);
+
   const finish = ()=>{
+    cancelAnimationFrame(rafId);
     introEl.classList.add("hidden");
     sessionStorage.setItem("intro-seen", "1");
   };
   skipBtn?.addEventListener("click", finish);
-  setTimeout(finish, lines.length*350 + 900);
 }
 
 /* -------- pagina di dettaglio progetto -------- */
