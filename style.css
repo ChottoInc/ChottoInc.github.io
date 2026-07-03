@@ -178,7 +178,7 @@ button{ font-family: inherit; }
 /* ---------- header / hero ---------- */
 .hero{
   position: relative;
-  padding: 110px 0 60px;
+  padding: 140px 0 90px;
   overflow: hidden;
   border-bottom: 1px solid var(--border);
   background:
@@ -189,8 +189,8 @@ button{ font-family: inherit; }
 
 .hero-inner{
   display:grid;
-  grid-template-columns: minmax(0,1fr) minmax(0,420px);
-  gap: 48px;
+  grid-template-columns: minmax(0,1fr) minmax(0,560px);
+  gap: 56px;
   align-items:center;
 }
 
@@ -247,7 +247,7 @@ button{ font-family: inherit; }
 /* ---------- hero slideshow ---------- */
 .hero-slideshow{
   position: relative;
-  aspect-ratio: 3/2;
+  aspect-ratio: 4/3;
   border-radius: var(--radius);
   overflow:hidden;
   border: 1px solid var(--border);
