@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nome Cognome — Game Developer Portfolio</title>
+<meta name="description" content="Portfolio di sviluppo videogiochi: progetti PC, mobile e itch.io.">
+
+<!-- Font: per cambiarli modifica sia questo link sia le variabili --font-display/--font-body/--font-mono in style.css -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+
+<!-- Sequenza di avvio animata (facoltativa, si vede una sola volta a sessione) -->
+<div id="intro">
+  <button id="skip-intro">Salta</button>
+</div>
+
+<!-- Bottoni tema / lingua, sempre visibili in alto a destra -->
+<div class="util-bar">
+  <button id="theme-toggle" class="util-btn" aria-label="Cambia tema"></button>
+  <button id="lang-toggle" class="util-btn" aria-label="Cambia lingua">EN</button>
+</div>
+
+<!-- ===================== HEADER ===================== -->
+<header class="hero">
+  <div class="container">
+    <div class="eyebrow" data-i18n="heroCta">progetti</div>
+    <h1 id="site-name">Nome Cognome</h1>
+    <p class="tagline" id="site-role" style="font-family:var(--font-mono); color:var(--accent-2); font-size:1rem; margin-bottom:6px;"></p>
+    <p class="tagline" id="site-tagline"></p>
+    <a href="#panel-pc" class="hero-cta" data-i18n="heroCta">Guarda i progetti</a>
+    <div class="socials" id="socials"></div>
+  </div>
+</header>
+
+<!-- ===================== TAB NAVIGATION ===================== -->
+<nav class="tabs-nav">
+  <div class="container">
+    <button class="tab-btn active" data-panel="panel-pc" data-i18n="navPc">PC</button>
+    <button class="tab-btn" data-panel="panel-mobile" data-i18n="navMobile">Mobile</button>
+    <button class="tab-btn" data-panel="panel-itch" data-i18n="navItch">Itch &amp; Asset</button>
+  </div>
+</nav>
+
+<main>
+  <!-- ===================== TAB: PC ===================== -->
+  <section id="panel-pc" class="panel active">
+    <div class="container">
+      <div class="panel-head">
+        <h2 data-i18n="sectionPcTitle">/progetti/pc</h2>
+        <p data-i18n="sectionPcDesc"></p>
+      </div>
+      <div class="panel-body">
+        <nav class="side-nav">
+          <div class="label" data-i18n="listLabel">elenco</div>
+          <ul id="nav-pc"></ul>
+        </nav>
+        <div class="project-list" id="list-pc"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TAB: MOBILE ===================== -->
+  <section id="panel-mobile" class="panel">
+    <div class="container">
+      <div class="panel-head">
+        <h2 data-i18n="sectionMobileTitle">/progetti/mobile</h2>
+        <p data-i18n="sectionMobileDesc"></p>
+      </div>
+      <div class="panel-body">
+        <nav class="side-nav">
+          <div class="label" data-i18n="listLabel">elenco</div>
+          <ul id="nav-mobile"></ul>
+        </nav>
+        <div class="project-list" id="list-mobile"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== TAB: ITCH ===================== -->
+  <section id="panel-itch" class="panel">
+    <div class="container">
+      <div class="panel-head">
+        <h2 data-i18n="sectionItchTitle">/progetti/itch</h2>
+        <p data-i18n="sectionItchDesc"></p>
+      </div>
+      <div class="panel-body">
+        <nav class="side-nav">
+          <div class="label" data-i18n="listLabel">elenco</div>
+          <ul id="nav-itch"></ul>
+        </nav>
+        <div class="project-list" id="list-itch"></div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="container">
+  <span data-i18n="footerText"></span>
+  <span id="footer-email"></span>
+</footer>
+
+<script src="data.js"></script>
+<script src="main.js"></script>
+<script>
+  document.getElementById("footer-email").textContent = SITE.email;
+</script>
+</body>
+</html>

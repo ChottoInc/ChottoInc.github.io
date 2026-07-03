@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Progetto — Nome Cognome</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-theme="dark">
+
+<div class="util-bar">
+  <button id="theme-toggle" class="util-btn" aria-label="Cambia tema"></button>
+  <button id="lang-toggle" class="util-btn" aria-label="Cambia lingua">EN</button>
+</div>
+
+<!--
+  Questa pagina NON contiene testo statico: tutto il contenuto viene
+  generato da main.js (funzione renderDetailPage) leggendo i parametri
+  ?cat= e ?id= nell'URL e cercando il progetto corrispondente in data.js.
+  Per modificare i testi di un progetto, edita data.js.
+-->
+<div id="project-detail"></div>
+
+<script src="data.js"></script>
+<script src="main.js"></script>
+</body>
+</html>
